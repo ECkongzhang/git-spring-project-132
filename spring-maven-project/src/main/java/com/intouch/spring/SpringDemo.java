@@ -13,8 +13,11 @@ public class SpringDemo {
         ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.properties.xml");
 
         //向IOC容器索要对象
-        Date now=context.getBean(Date.class);
-        DateFormat dateFormat=context.getBean(SimpleDateFormat.class);
+        //Date now=context.getBean(Date.class);
+        //按照名称索要对象
+        Date now=(Date)context.getBean("now");
+        //DateFormat dateFormat=context.getBean(SimpleDateFormat.class);
+        DateFormat dateFormat=context.getBean(DateFormat.class);
 
 
         System.out.println("现在的时间是："+dateFormat.format(now));
